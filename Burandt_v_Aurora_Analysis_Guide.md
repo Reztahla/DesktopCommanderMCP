@@ -3,7 +3,7 @@
 ## Using DesktopCommanderMCP for Legal Case Management
 
 **Prepared for:** Analysis of CB x Aurora project folder
-**Folder Path:** `/Users/TaherLadha/Documents/CB x Aurora `
+**Folder Path:** `/Users/trl/Documents/CB x Aurora`
 **Purpose:** Contextual understanding, evidence organization, and advocacy optimization
 
 ---
@@ -38,14 +38,14 @@ For optimal legal document analysis, configure these settings:
 
 ```json
 {
-  "allowedDirectories": ["/Users/TaherLadha/Documents/CB x Aurora "],
+  "allowedDirectories": ["/Users/trl/Documents/CB x Aurora"],
   "fileReadLineLimit": 2000,
   "fileWriteLineLimit": 100
 }
 ```
 
 **To set this configuration, ask Claude:**
-> "Use set_config_value to set allowedDirectories to ['/Users/TaherLadha/Documents/CB x Aurora '] for security"
+> "Use set_config_value to set allowedDirectories to ['/Users/trl/Documents/CB x Aurora'] for security"
 
 ### File Type Support Matrix
 
@@ -76,14 +76,14 @@ For optimal legal document analysis, configure these settings:
 ### Step 1.1: Map Complete Folder Structure
 
 **Ask Claude:**
-> "Use list_directory on '/Users/TaherLadha/Documents/CB x Aurora ' with depth 4 to show me the complete folder structure"
+> "Use list_directory on '/Users/trl/Documents/CB x Aurora' with depth 4 to show me the complete folder structure"
 
 **Expected Output:** Complete tree view showing all files and subdirectories with [DIR] and [FILE] prefixes.
 
 ### Step 1.2: Generate File Type Inventory
 
 **Ask Claude:**
-> "Use start_search on '/Users/TaherLadha/Documents/CB x Aurora ' in files mode with pattern '*.pdf' to find all PDF files, then repeat for *.docx, *.txt, *.md, *.jpeg, *.mp4, and *.pages"
+> "Use start_search on '/Users/trl/Documents/CB x Aurora' in files mode with pattern '*.pdf' to find all PDF files, then repeat for *.docx, *.txt, *.md, *.jpeg, *.mp4, and *.pages"
 
 **Create inventory spreadsheet tracking:**
 - File name
@@ -116,7 +116,7 @@ This is your **top priority** - building comprehensive contextual understanding.
 Execute these searches systematically. For each search:
 
 **Ask Claude:**
-> "Use start_search on '/Users/TaherLadha/Documents/CB x Aurora ' in content mode with pattern '[TERM]' and contextLines set to 3"
+> "Use start_search on '/Users/trl/Documents/CB x Aurora' in content mode with pattern '[TERM]' and contextLines set to 3"
 
 #### Termination & Separation Keywords
 | Search Term | Purpose |
@@ -248,7 +248,7 @@ Before requesting any deletion, create a duplicate log:
 Based on legal document management best practices, optimized for employment litigation:
 
 ```
-/Users/TaherLadha/Documents/CB x Aurora /
+/Users/trl/Documents/CB x Aurora/
 │
 ├── 00_CASE_INDEX/
 │   ├── Master_Document_Index.md          # Complete file inventory with descriptions
@@ -363,12 +363,12 @@ Based on legal document management best practices, optimized for employment liti
 ### Step 5.1: Create Backup of Current Structure
 
 **Ask Claude:**
-> "Create a complete inventory of the current folder structure in '/Users/TaherLadha/Documents/CB x Aurora ' and save it to a file before we make any changes"
+> "Create a complete inventory of the current folder structure in '/Users/trl/Documents/CB x Aurora' and save it to a file before we make any changes"
 
 ### Step 5.2: Create New Folder Structure
 
 **Ask Claude:**
-> "Use create_directory to create the folder structure I've approved at '/Users/TaherLadha/Documents/CB x Aurora /[folder name]'"
+> "Use create_directory to create the folder structure I've approved at '/Users/trl/Documents/CB x Aurora/[folder name]'"
 
 Repeat for each folder in the approved structure.
 
@@ -437,9 +437,9 @@ For each key piece of evidence:
 ### Reconnaissance Commands
 
 ```
-"Use list_directory on '/Users/TaherLadha/Documents/CB x Aurora ' with depth 4"
+"Use list_directory on '/Users/trl/Documents/CB x Aurora' with depth 4"
 
-"Use start_search on '/Users/TaherLadha/Documents/CB x Aurora ' in files mode with pattern '*.pdf'"
+"Use start_search on '/Users/trl/Documents/CB x Aurora' in files mode with pattern '*.pdf'"
 
 "Use get_file_info on '[file path]'"
 ```
@@ -447,7 +447,7 @@ For each key piece of evidence:
 ### Content Search Commands
 
 ```
-"Use start_search on '/Users/TaherLadha/Documents/CB x Aurora ' in content mode with pattern '[search term]' with contextLines 3"
+"Use start_search on '/Users/trl/Documents/CB x Aurora' in content mode with pattern '[search term]' with contextLines 3"
 
 "Use get_more_search_results with sessionId '[id]' offset [n] length 20"
 
@@ -562,10 +562,10 @@ This recovers the context of your analysis session.
 To begin your analysis, copy and paste these prompts to Claude Desktop (with DesktopCommanderMCP installed):
 
 ### Prompt 1: Initial Reconnaissance
-> "I need to analyze legal documents in '/Users/TaherLadha/Documents/CB x Aurora '. Please use list_directory with depth 4 to map the complete folder structure, then use start_search in files mode to count all PDFs, and report what you find."
+> "I need to analyze legal documents in '/Users/trl/Documents/CB x Aurora'. Please use list_directory with depth 4 to map the complete folder structure, then use start_search in files mode to count all PDFs, and report what you find."
 
 ### Prompt 2: Begin Content Search
-> "Use start_search on '/Users/TaherLadha/Documents/CB x Aurora ' in content mode with pattern 'termination' and contextLines 3 to find all documents discussing termination."
+> "Use start_search on '/Users/trl/Documents/CB x Aurora' in content mode with pattern 'termination' and contextLines 3 to find all documents discussing termination."
 
 ### Prompt 3: Build Context
 > "After reviewing the search results, read the most relevant documents completely and help me understand the narrative of what happened to Burandt."
