@@ -1,578 +1,438 @@
-# Burandt v Aurora: Comprehensive Document Analysis Guide
+# Burandt v Aurora: Expert Legal Document Analysis Guide
 
-## Using DesktopCommanderMCP for Legal Case Management
+## Strategic Case Analysis Using DesktopCommanderMCP
 
-**Prepared for:** Analysis of CB x Aurora project folder
+**Case:** Burandt v Aurora
 **Folder Path:** `/Users/trl/Documents/CB x Aurora`
-**Purpose:** Contextual understanding, evidence organization, and advocacy optimization
+**Objective:** Build an airtight advocacy position through systematic evidence analysis, demonstrating procedural bad faith, policy noncompliance, and unfair treatment
 
 ---
 
-## Table of Contents
+## MASTER PROMPT: Initial Case Reconnaissance
 
-1. [Prerequisites & Setup](#1-prerequisites--setup)
-2. [Phase 1: Initial Reconnaissance](#2-phase-1-initial-reconnaissance)
-3. [Phase 2: Content Search & Case Context Building](#3-phase-2-content-search--case-context-building)
-4. [Phase 3: Duplicate Detection & Cleanup](#4-phase-3-duplicate-detection--cleanup)
-5. [Phase 4: Proposed Folder Structure](#5-phase-4-proposed-folder-structure)
-6. [Phase 5: Document Reorganization Workflow](#6-phase-5-document-reorganization-workflow)
-7. [Phase 6: Advanced Analysis Techniques](#7-phase-6-advanced-analysis-techniques)
-8. [Quick Reference Command Library](#8-quick-reference-command-library)
-9. [Legal Document Analysis Keywords](#9-legal-document-analysis-keywords)
-
----
-
-## 1. Prerequisites & Setup
-
-### Verify DesktopCommanderMCP Installation
-
-Before beginning, ensure DesktopCommanderMCP is properly installed and configured:
+**Copy this entire prompt to Claude Desktop to begin:**
 
 ```
-Ask Claude Desktop: "Use get_config to show me the current DesktopCommanderMCP configuration"
-```
-
-### Recommended Configuration
-
-For optimal legal document analysis, configure these settings:
-
-```json
-{
-  "allowedDirectories": ["/Users/trl/Documents/CB x Aurora"],
-  "fileReadLineLimit": 2000,
-  "fileWriteLineLimit": 100
-}
-```
-
-**To set this configuration, ask Claude:**
-> "Use set_config_value to set allowedDirectories to ['/Users/trl/Documents/CB x Aurora'] for security"
-
-### File Type Support Matrix
-
-| File Type | Read | Search Content | Extract Text | Notes |
-|-----------|------|----------------|--------------|-------|
-| .pdf | ✅ | ✅ | ✅ | Full text + images extracted |
-| .docx | ❌ | ❌ | ❌ | Convert to PDF first |
-| .doc | ❌ | ❌ | ❌ | Convert to PDF first |
-| .pages | ❌ | ❌ | ❌ | Export to PDF from Pages app |
-| .txt | ✅ | ✅ | ✅ | Full support |
-| .md | ✅ | ✅ | ✅ | Full support |
-| .json | ✅ | ✅ | ✅ | Full support |
-| .yaml | ✅ | ✅ | ✅ | Full support |
-| .jpeg/.jpg | ✅ | ❌ | ❌ | Visual display only |
-| .mp4 | ❌ | ❌ | ❌ | Use external tools |
-| .dng | ❌ | ❌ | ❌ | Raw image format |
-| .zip | ❌ | ❌ | ❌ | Extract first |
-
-**IMPORTANT:** For .docx, .doc, and .pages files, batch convert to PDF for full searchability:
-1. Open each file in its native application
-2. Export/Save As PDF
-3. Store PDFs alongside originals or in a dedicated `/PDFs` subfolder
-
----
-
-## 2. Phase 1: Initial Reconnaissance
-
-### Step 1.1: Map Complete Folder Structure
-
-**Ask Claude:**
-> "Use list_directory on '/Users/trl/Documents/CB x Aurora' with depth 4 to show me the complete folder structure"
-
-**Expected Output:** Complete tree view showing all files and subdirectories with [DIR] and [FILE] prefixes.
-
-### Step 1.2: Generate File Type Inventory
-
-**Ask Claude:**
-> "Use start_search on '/Users/trl/Documents/CB x Aurora' in files mode with pattern '*.pdf' to find all PDF files, then repeat for *.docx, *.txt, *.md, *.jpeg, *.mp4, and *.pages"
-
-**Create inventory spreadsheet tracking:**
-- File name
-- File path
-- File type
-- Size
-- Date modified
-- Category (correspondence, policy, evidence, etc.)
-
-### Step 1.3: Get Metadata for Key Files
-
-For each important file identified:
-
-**Ask Claude:**
-> "Use get_file_info on '[full file path]' to get metadata including creation date, modification date, and size"
-
-**Why this matters for legal cases:**
-- Creation dates establish timeline
-- Modification dates may indicate tampering concerns
-- File sizes help identify potential duplicates
-
----
-
-## 3. Phase 2: Content Search & Case Context Building
-
-This is your **top priority** - building comprehensive contextual understanding.
-
-### Step 2.1: Core Legal Term Searches
-
-Execute these searches systematically. For each search:
-
-**Ask Claude:**
-> "Use start_search on '/Users/trl/Documents/CB x Aurora' in content mode with pattern '[TERM]' and contextLines set to 3"
-
-#### Termination & Separation Keywords
-| Search Term | Purpose |
-|-------------|---------|
-| `termination` | Identify all termination-related documents |
-| `terminated` | Past tense references |
-| `dismissal` | Alternative termination language |
-| `separation` | Employment separation documents |
-| `resignation` | Distinguish voluntary from involuntary |
-| `fired` | Informal termination references |
-
-#### Policy & Compliance Keywords
-| Search Term | Purpose |
-|-------------|---------|
-| `policy` | All policy references |
-| `violation` | Policy violation allegations |
-| `compliance` | Compliance requirements |
-| `procedure` | Procedural requirements |
-| `handbook` | Employee handbook references |
-| `code of conduct` | Conduct standards |
-| `progressive discipline` | Discipline procedures |
-
-#### Bad Faith & Unfairness Keywords
-| Search Term | Purpose |
-|-------------|---------|
-| `bad faith` | Direct bad faith allegations |
-| `unfair` | Unfairness claims |
-| `discrimination` | Discrimination evidence |
-| `retaliation` | Retaliation claims |
-| `hostile` | Hostile work environment |
-| `harassment` | Harassment claims |
-| `wrongful` | Wrongful termination |
-| `pretextual` | Pretext arguments |
-
-#### Timeline & Events Keywords
-| Search Term | Purpose |
-|-------------|---------|
-| `Burandt` | All references to Burandt |
-| `Aurora` | All company references |
-| `meeting` | Meeting documentation |
-| `written warning` | Discipline history |
-| `performance` | Performance-related documents |
-| `investigation` | Investigation records |
-| `complaint` | Complaints filed |
-| `grievance` | Grievance procedures |
-
-#### Communication & Evidence Keywords
-| Search Term | Purpose |
-|-------------|---------|
-| `email` | Email references |
-| `conversation` | Documented conversations |
-| `witness` | Witness statements |
-| `confirmed` | Confirmations |
-| `denied` | Denials |
-| `admitted` | Admissions |
-
-### Step 2.2: Date-Based Searches
-
-Search for specific date patterns relevant to the case:
-
-**Ask Claude:**
-> "Use start_search in content mode with pattern '[DATE PATTERN]' - for example '2023' or '2024' or specific dates like 'January 15'"
-
-### Step 2.3: Name-Based Searches
-
-Search for key individuals mentioned in the case:
-
-**Ask Claude:**
-> "Use start_search in content mode with pattern '[PERSON NAME]' to find all documents mentioning this individual"
-
-**Track:** Supervisors, HR representatives, witnesses, executives, colleagues
-
-### Step 2.4: Reading Full Documents
-
-After searches identify relevant files, read them completely:
-
-**Ask Claude:**
-> "Use read_file on '[file path]' to read the complete document"
-
-For long PDFs, use pagination:
-> "Use read_file on '[file path]' with offset 0 and length 500, then continue with offset 500"
-
----
-
-## 4. Phase 3: Duplicate Detection & Cleanup
-
-### Step 3.1: Identify Potential Duplicates by Name
-
-**Ask Claude:**
-> "Use start_search in files mode with pattern '*copy*' to find files with 'copy' in the name"
-
-Also search for:
-- `*Copy*` (capital C)
-- `*(1)*` (numbered duplicates)
-- `*(2)*`
-- `*-2*`
-- `*_backup*`
-- `*_old*`
-- `*FINAL*` vs `*final*` vs `*Final*`
-
-### Step 3.2: Size-Based Duplicate Detection
-
-For files with similar names, compare metadata:
-
-**Ask Claude:**
-> "Use get_file_info on '[file1]' and '[file2]' to compare sizes and dates"
-
-**Identical size + same content = duplicate**
-
-### Step 3.3: Content Comparison for Suspected Duplicates
-
-**Ask Claude:**
-> "Use read_multiple_files to read '[file1]' and '[file2]' so I can compare their contents"
-
-### Step 3.4: Documenting Duplicates (Before Any Action)
-
-Before requesting any deletion, create a duplicate log:
-
-| Original File | Duplicate File | Size Match | Content Match | Recommended Action |
-|---------------|----------------|------------|---------------|-------------------|
-| [path] | [path] | Yes/No | Yes/No | Keep/Delete/Review |
-
-**CRITICAL:** I will always request your explicit permission before suggesting any file deletion, modification, or move.
-
----
-
-## 5. Phase 4: Proposed Folder Structure
-
-Based on legal document management best practices, optimized for employment litigation:
-
-```
-/Users/trl/Documents/CB x Aurora/
-│
-├── 00_CASE_INDEX/
-│   ├── Master_Document_Index.md          # Complete file inventory with descriptions
-│   ├── Timeline_of_Events.md             # Chronological case timeline
-│   ├── Key_Persons_Directory.md          # All individuals mentioned with roles
-│   ├── Search_Results_Log.md             # Log of all content searches performed
-│   └── Case_Summary.md                   # Executive summary of case
-│
-├── 01_PLEADINGS_AND_FILINGS/
-│   ├── Complaints/
-│   ├── Answers/
-│   ├── Motions/
-│   ├── Court_Orders/
-│   └── Correspondence_with_Court/
-│
-├── 02_EMPLOYMENT_RECORDS/
-│   ├── Offer_Letter_and_Contract/
-│   ├── Performance_Reviews/
-│   ├── Disciplinary_Records/
-│   ├── Termination_Documents/
-│   └── Benefits_and_Compensation/
-│
-├── 03_COMPANY_POLICIES/
-│   ├── Employee_Handbook/
-│   ├── HR_Policies/
-│   ├── Code_of_Conduct/
-│   ├── Disciplinary_Procedures/
-│   └── Anti_Discrimination_Policies/
-│
-├── 04_CORRESPONDENCE/
-│   ├── With_Aurora_HR/
-│   ├── With_Supervisor/
-│   ├── With_Colleagues/
-│   ├── With_Legal_Counsel/
-│   └── Internal_Aurora_Communications/
-│
-├── 05_EVIDENCE_BAD_FAITH/
-│   ├── Procedural_Violations/
-│   ├── Policy_Noncompliance/
-│   ├── Inconsistent_Treatment/
-│   ├── Timeline_Discrepancies/
-│   └── Witness_Statements/
-│
-├── 06_EVIDENCE_SUPPORTING/
-│   ├── Positive_Performance_Evidence/
-│   ├── Colleague_Testimonials/
-│   ├── Communications_Proving_Good_Standing/
-│   └── Counter_Evidence_to_Aurora_Claims/
-│
-├── 07_MEDIA_EVIDENCE/
-│   ├── Photos/
-│   │   ├── JPEG/
-│   │   └── DNG_RAW/
-│   ├── Videos/
-│   ├── Screenshots/
-│   └── Audio_Recordings/
-│
-├── 08_ANALYSIS_AND_NOTES/
-│   ├── Legal_Research/
-│   ├── Case_Strategy_Notes/
-│   ├── Argument_Outlines/
-│   └── Questions_for_Witnesses/
-│
-├── 09_REFERENCE_MATERIALS/
-│   ├── Applicable_Laws_and_Statutes/
-│   ├── Relevant_Case_Law/
-│   └── Legal_Definitions/
-│
-├── 10_TECHNICAL_TOOLS/
-│   ├── Scripts/
-│   │   ├── *.py
-│   │   └── *.sh
-│   ├── Hooks/
-│   ├── Config/
-│   │   ├── *.json
-│   │   ├── *.yaml
-│   │   └── *.env
-│   └── VSCode_Settings/
-│
-├── 98_ORIGINALS_ARCHIVE/
-│   └── [Original folder structure preserved as backup]
-│
-└── 99_DUPLICATES_TO_REVIEW/
-    └── [Suspected duplicates pending deletion approval]
-```
-
-### Folder Structure Rationale
-
-| Folder | Purpose | Optimization |
-|--------|---------|--------------|
-| 00_CASE_INDEX | Central reference hub | Numbered 00 to always appear first |
-| 01-09 | Core case materials | Numbered for logical workflow progression |
-| 01 | Legal filings | Separated for attorney access |
-| 02 | Employment history | Establishes baseline relationship |
-| 03 | Policies | Reference for compliance arguments |
-| 04 | Communications | Chronological evidence trail |
-| 05 | Bad faith evidence | **KEY:** Your strongest arguments |
-| 06 | Supporting evidence | Counter-narrative materials |
-| 07 | Media | Separated by format for processing |
-| 08 | Work product | Your analysis and strategy |
-| 09 | Reference | External research materials |
-| 10 | Technical | Scripts and config isolated |
-| 98 | Archive | Preserve original state before reorganization |
-| 99 | Duplicates | Staging area for review before deletion |
-
----
-
-## 6. Phase 5: Document Reorganization Workflow
-
-**IMPORTANT:** All moves require your explicit approval.
-
-### Step 5.1: Create Backup of Current Structure
-
-**Ask Claude:**
-> "Create a complete inventory of the current folder structure in '/Users/trl/Documents/CB x Aurora' and save it to a file before we make any changes"
-
-### Step 5.2: Create New Folder Structure
-
-**Ask Claude:**
-> "Use create_directory to create the folder structure I've approved at '/Users/trl/Documents/CB x Aurora/[folder name]'"
-
-Repeat for each folder in the approved structure.
-
-### Step 5.3: Move Files (With Approval)
-
-For each file to be moved, I will present:
-1. Current location
-2. Proposed new location
-3. Rationale for the move
-
-**You approve or deny each move.**
-
-**To execute approved move:**
-> "Use move_file to move '[source path]' to '[destination path]'"
-
-### Step 5.4: Handle Duplicates (With Approval)
-
-For each suspected duplicate:
-1. I'll show both files
-2. Compare content/metadata
-3. Recommend which to keep
-4. **Wait for your explicit deletion approval**
-
-**To delete approved duplicate:**
-> "Use the terminal to delete '[file path]' - but first confirm this is correct"
-
----
-
-## 7. Phase 6: Advanced Analysis Techniques
-
-### 7.1: Building Case Timeline
-
-After content searches, compile a chronological timeline:
-
-**Ask Claude:**
-> "Based on the documents we've reviewed, create a chronological timeline of events in the Burandt v Aurora case, including dates, events, and source documents"
-
-### 7.2: Identifying Inconsistencies
-
-Cross-reference documents for contradictions:
-
-**Ask Claude:**
-> "Compare the statements in [document A] with [document B] and identify any inconsistencies or contradictions"
-
-### 7.3: Policy Violation Analysis
-
-**Ask Claude:**
-> "Read Aurora's [policy document] and then read [termination document]. Identify any instances where the termination process violated stated policy"
-
-### 7.4: Pattern Recognition
-
-**Ask Claude:**
-> "Based on all correspondence reviewed, identify patterns in how Aurora communicated with Burandt, particularly any shifts in tone or treatment"
-
-### 7.5: Generating Evidence Summaries
-
-For each key piece of evidence:
-
-**Ask Claude:**
-> "Read [document] and provide a summary including: (1) Document type, (2) Date, (3) Key parties, (4) Main points, (5) Relevance to bad faith/unfairness claims, (6) Potential weaknesses"
-
----
-
-## 8. Quick Reference Command Library
-
-### Reconnaissance Commands
-
-```
-"Use list_directory on '/Users/trl/Documents/CB x Aurora' with depth 4"
-
-"Use start_search on '/Users/trl/Documents/CB x Aurora' in files mode with pattern '*.pdf'"
-
-"Use get_file_info on '[file path]'"
-```
-
-### Content Search Commands
-
-```
-"Use start_search on '/Users/trl/Documents/CB x Aurora' in content mode with pattern '[search term]' with contextLines 3"
-
-"Use get_more_search_results with sessionId '[id]' offset [n] length 20"
-
-"Use list_searches to see active search sessions"
-```
-
-### Reading Commands
-
-```
-"Use read_file on '[file path]'"
-
-"Use read_file on '[file path]' with offset [n] and length [m]"
-
-"Use read_multiple_files on ['file1', 'file2', 'file3']"
-```
-
-### Organization Commands (Require Approval)
-
-```
-"Use create_directory at '[path]'"
-
-"Use move_file from '[source]' to '[destination]'"
-```
-
-### Utility Commands
-
-```
-"Use get_config to show current configuration"
-
-"Use set_config_value to update [setting] to [value]"
-
-"Use get_recent_tool_calls with maxResults 50"
+You are acting as an expert employment litigation analyst. I need you to conduct a comprehensive forensic analysis of the Burandt v Aurora case materials located at '/Users/trl/Documents/CB x Aurora'.
+
+PHASE 1 - RECONNAISSANCE:
+1. Use list_directory on '/Users/trl/Documents/CB x Aurora' with depth 4 to map the complete folder structure
+2. After mapping, provide:
+   - Total file count by type (.pdf, .docx, .doc, .txt, .md, .pages, .jpeg, .mp4)
+   - Identification of any apparent organizational structure
+   - Files that appear to be duplicates based on naming patterns
+   - Files that appear most legally significant based on names (policies, termination letters, complaints, correspondence)
+
+PHASE 2 - INITIAL ASSESSMENT:
+Based on the folder structure, provide:
+- A preliminary categorization of document types present
+- Recommended priority order for document review
+- Any gaps you notice (e.g., missing policy documents, incomplete correspondence chains)
+- Files requiring format conversion for full searchability
+
+Present your findings in a structured report format, then await my instructions for the next phase.
 ```
 
 ---
 
-## 9. Legal Document Analysis Keywords
+## STRATEGIC ANALYSIS WORKFLOW
 
-### Employment Law Terms
+### Stage 1: Evidence Inventory & Triage
 
-| Term | Search Pattern | Relevance |
-|------|----------------|-----------|
-| At-will employment | `at-will` OR `at will` | Employment status |
-| Just cause | `just cause` | Termination standard |
-| Progressive discipline | `progressive discipline` | Required process |
-| Due process | `due process` | Procedural rights |
-| Constructive dismissal | `constructive` | Alternative claim |
-| Wrongful termination | `wrongful` | Primary claim |
-| Breach of contract | `breach` | Contract claims |
-| Implied contract | `implied` | Contract arguments |
-| Good faith and fair dealing | `good faith` OR `fair dealing` | Covenant claims |
-| Mitigation | `mitigation` | Damages |
+**Prompt 1A - Document Classification:**
+```
+Review the folder structure at '/Users/trl/Documents/CB x Aurora' and classify all documents into these litigation categories:
 
-### Evidence of Bad Faith
+CATEGORY A - SMOKING GUNS (Highest Priority):
+- Direct evidence of bad faith, discrimination, or policy violation
+- Admissions against interest by Aurora representatives
+- Documents contradicting Aurora's stated reasons
 
-| Indicator | Search Pattern | What It Proves |
-|-----------|----------------|----------------|
-| Pretextual reasoning | `reason` AND `termination` | False justification |
-| Inconsistent treatment | `other employees` OR `similarly situated` | Discrimination |
-| Rushed process | `immediately` OR `effective immediately` | Lack of due process |
-| Missing documentation | `no record` OR `not documented` | Fabrication |
-| Changing stories | Search same topic across dates | Inconsistency |
-| Ignored complaints | `complaint` AND `response` | Retaliation |
+CATEGORY B - FOUNDATION DOCUMENTS:
+- Employment contracts, offer letters, job descriptions
+- Company policies, handbooks, procedures
+- Performance reviews and evaluations
 
-### Advocacy Optimization Terms
+CATEGORY C - NARRATIVE TIMELINE:
+- Correspondence (emails, letters, messages)
+- Meeting notes and memoranda
+- Incident reports and complaints
 
-| Argument Type | Key Terms to Find |
-|---------------|-------------------|
-| Policy violation | Policy name + "violated", "not followed", "ignored" |
-| Procedural error | "Step", "process", "requirement" + "skipped", "missed" |
-| Timeline issues | Dates that don't align, rushed decisions |
-| Witness support | "Witnessed", "observed", "confirmed", "corroborate" |
-| Documentary evidence | Emails, memos with explicit statements |
+CATEGORY D - CORROBORATING EVIDENCE:
+- Witness communications
+- Colleague statements
+- Third-party documentation
 
----
+CATEGORY E - TECHNICAL/ADMINISTRATIVE:
+- Scripts, config files, tools
+- File duplicates
+- Non-case materials
 
-## Appendix A: Troubleshooting
+For each file identified, note its current location and recommended category.
+```
 
-### Common Issues
+**Prompt 1B - Priority File Identification:**
+```
+Using start_search on '/Users/trl/Documents/CB x Aurora' in files mode, locate files matching these high-priority patterns and report findings:
 
-| Issue | Solution |
-|-------|----------|
-| "File not found" | Check exact path including trailing space |
-| Search returns nothing | Try alternative spellings, case-insensitive search |
-| PDF won't read | File may be image-based; OCR needed externally |
-| Large file timeout | Use offset/length pagination |
-| Too many results | Add more specific search terms |
+1. Pattern: '*termination*' OR '*fired*' OR '*separation*'
+2. Pattern: '*policy*' OR '*handbook*' OR '*procedure*'
+3. Pattern: '*warning*' OR '*discipline*' OR '*write-up*'
+4. Pattern: '*complaint*' OR '*grievance*' OR '*HR*'
+5. Pattern: '*performance*' OR '*review*' OR '*evaluation*'
+6. Pattern: '*contract*' OR '*offer*' OR '*agreement*'
 
-### File Conversion Requirements
-
-For .docx, .doc, .pages files:
-1. Open in native application (Word, Pages)
-2. File > Export to PDF or Save As PDF
-3. Save to same location or dedicated PDF folder
-4. Original remains untouched
+For each search, list files found with their full paths.
+```
 
 ---
 
-## Appendix B: Session Recovery
+### Stage 2: Deep Content Analysis
 
-If your Claude session is interrupted:
+**Prompt 2A - Termination Analysis (CRITICAL):**
+```
+I need you to analyze all termination-related documents.
 
-**Ask Claude:**
-> "Use get_recent_tool_calls with maxResults 100 to show me what we were working on"
+Step 1: Use start_search on '/Users/trl/Documents/CB x Aurora' in content mode with pattern 'termination' and contextLines 5
 
-This recovers the context of your analysis session.
+Step 2: For each file containing 'termination', use read_file to extract the complete content
+
+Step 3: Analyze and report:
+- WHO made the termination decision (names, titles)
+- WHAT reasons were officially stated
+- WHEN the termination occurred (exact dates)
+- HOW the termination was communicated
+- WHETHER proper procedures were followed (based on any policy references)
+
+Step 4: Flag any inconsistencies, missing steps, or procedural irregularities
+
+Present findings in a format suitable for legal brief preparation.
+```
+
+**Prompt 2B - Policy Compliance Audit:**
+```
+Conduct a policy compliance audit for the Burandt termination.
+
+Step 1: Use start_search to find all policy documents (pattern: 'policy' OR 'handbook' OR 'procedure')
+
+Step 2: Read each policy document completely using read_file
+
+Step 3: Extract and list ALL procedural requirements for:
+- Employee discipline
+- Progressive discipline steps
+- Termination procedures
+- Investigation requirements
+- Employee notification requirements
+- Appeal or grievance procedures
+
+Step 4: Create a compliance checklist showing:
+| Required Step | Policy Source | Was It Followed? | Evidence |
+|---------------|---------------|------------------|----------|
+
+Step 5: Identify EVERY instance where Aurora deviated from its own stated policies
+```
+
+**Prompt 2C - Bad Faith Pattern Detection:**
+```
+Search for evidence of bad faith and unfair treatment.
+
+Execute these content searches on '/Users/trl/Documents/CB x Aurora' with contextLines 5:
+
+1. Pattern: 'immediately' OR 'effective immediately' (rushed actions)
+2. Pattern: 'no warning' OR 'without warning' (lack of notice)
+3. Pattern: 'first time' OR 'never before' (inconsistent treatment)
+4. Pattern: 'other employees' OR 'similarly situated' (disparate treatment)
+5. Pattern: 'changed' OR 'different' OR 'inconsistent' (shifting explanations)
+6. Pattern: 'complained' OR 'reported' OR 'raised concerns' (potential retaliation)
+7. Pattern: 'denied' OR 'refused' OR 'ignored' (procedural failures)
+
+For each finding, analyze:
+- Context of the statement
+- Who made the statement
+- How it demonstrates bad faith or unfairness
+- Strength as evidence (strong/moderate/weak)
+```
 
 ---
 
-## Next Steps
+### Stage 3: Timeline Reconstruction
 
-To begin your analysis, copy and paste these prompts to Claude Desktop (with DesktopCommanderMCP installed):
+**Prompt 3A - Chronological Event Mapping:**
+```
+Construct a detailed chronological timeline of all events in the Burandt v Aurora case.
 
-### Prompt 1: Initial Reconnaissance
-> "I need to analyze legal documents in '/Users/trl/Documents/CB x Aurora'. Please use list_directory with depth 4 to map the complete folder structure, then use start_search in files mode to count all PDFs, and report what you find."
+Step 1: Search for date references using patterns:
+- Years: '2022', '2023', '2024', '2025'
+- Months: 'January', 'February', etc.
+- Date formats: patterns containing '/' or '-' with numbers
 
-### Prompt 2: Begin Content Search
-> "Use start_search on '/Users/trl/Documents/CB x Aurora' in content mode with pattern 'termination' and contextLines 3 to find all documents discussing termination."
+Step 2: Read all correspondence and communications chronologically
 
-### Prompt 3: Build Context
-> "After reviewing the search results, read the most relevant documents completely and help me understand the narrative of what happened to Burandt."
+Step 3: Build a timeline in this format:
+
+| Date | Event | Document Source | Key Quote | Significance |
+|------|-------|-----------------|-----------|--------------|
+
+Step 4: Identify:
+- Critical turning points
+- Suspicious gaps in documentation
+- Events that occurred unusually quickly
+- Inconsistencies between stated timelines and actual dates
+
+Step 5: Flag any timeline evidence that supports bad faith claims
+```
+
+**Prompt 3B - Communication Pattern Analysis:**
+```
+Analyze the communication patterns between Burandt and Aurora representatives.
+
+Step 1: Identify all correspondence files (emails, letters, messages)
+
+Step 2: For each communication, extract:
+- Date sent/received
+- Sender and recipient
+- Subject/topic
+- Tone (professional, hostile, dismissive, supportive)
+- Key statements or admissions
+
+Step 3: Map the communication flow:
+- Were Burandt's communications acknowledged?
+- Were concerns addressed or ignored?
+- Did tone change over time? When and why?
+- Were there unreasonable delays in responses?
+
+Step 4: Identify communications that demonstrate:
+- Aurora acting in bad faith
+- Ignoring legitimate concerns
+- Making false or misleading statements
+- Failing to follow stated procedures
+```
 
 ---
 
-**Document Version:** 1.0
-**Created:** For Burandt v Aurora case analysis
-**Tool:** DesktopCommanderMCP
-**Note:** All file modifications require explicit user approval
+### Stage 4: Witness & Corroboration Analysis
+
+**Prompt 4A - Colleague Evidence Review:**
+```
+Analyze all colleague communications and potential witness evidence.
+
+Step 1: Search for colleague-related content:
+- Pattern: 'colleague' OR 'coworker' OR 'team'
+- Pattern: 'witnessed' OR 'observed' OR 'saw'
+- Pattern: 'confirm' OR 'corroborate' OR 'support'
+
+Step 2: For each relevant document, identify:
+- Who is the potential witness
+- What did they observe or know
+- How does their account support Burandt's position
+- Are there any inconsistencies with other evidence
+
+Step 3: Create a witness inventory:
+| Name | Role | What They Know | Document Source | Contact Info (if available) |
+|------|------|----------------|-----------------|----------------------------|
+
+Step 4: Identify the strongest corroborating witnesses for deposition
+```
+
+---
+
+### Stage 5: Opposition Weakness Analysis
+
+**Prompt 5A - Aurora's Vulnerabilities:**
+```
+Analyze the evidence to identify Aurora's litigation vulnerabilities.
+
+Search for and analyze:
+
+1. POLICY VIOLATIONS - Where Aurora failed to follow its own rules:
+   - Search: 'policy' + read policies + compare to actions taken
+
+2. INCONSISTENT STATEMENTS - Where Aurora's story changed:
+   - Search: 'reason' AND 'termination' across multiple documents
+   - Compare stated reasons over time
+
+3. PROCEDURAL FAILURES - Required steps that were skipped:
+   - Search: 'step' OR 'process' OR 'procedure'
+   - Cross-reference with termination timeline
+
+4. DOCUMENTATION GAPS - Evidence that should exist but doesn't:
+   - Identify missing progressive discipline records
+   - Missing investigation notes
+   - Missing performance improvement plans
+
+5. ADMISSIONS AGAINST INTEREST - Statements harmful to Aurora:
+   - Search: 'admit' OR 'acknowledge' OR 'agree'
+   - Search: 'mistake' OR 'error' OR 'shouldn't have'
+
+For each vulnerability, rate:
+- Strength of evidence (1-10)
+- Difficulty for Aurora to explain
+- Potential impact at trial
+```
+
+**Prompt 5B - Pretext Analysis:**
+```
+Analyze whether Aurora's stated reasons for termination are pretextual.
+
+Step 1: Identify ALL reasons Aurora gave for the termination
+- Search termination letter and related communications
+- Note exact language used
+
+Step 2: For each stated reason, search for contradicting evidence:
+- Positive performance reviews
+- Praise or commendations
+- Lack of prior warnings
+- Other employees with same "issues" who weren't terminated
+
+Step 3: Analyze temporal proximity:
+- Did termination follow closely after Burandt raised concerns?
+- Did termination follow closely after any protected activity?
+- Was there a pattern of escalating discipline that appears manufactured?
+
+Step 4: Document the pretext argument:
+| Aurora's Stated Reason | Contradicting Evidence | Why It's Pretextual |
+|------------------------|------------------------|---------------------|
+```
+
+---
+
+### Stage 6: Evidence Organization
+
+**Prompt 6A - Duplicate Identification (Before Reorganization):**
+```
+Before reorganizing files, identify all duplicates and unnecessary files.
+
+Step 1: Search for duplicate patterns in '/Users/trl/Documents/CB x Aurora':
+- Pattern: '*copy*' OR '*Copy*' OR '*(1)*' OR '*(2)*'
+- Pattern: '*backup*' OR '*old*' OR '*FINAL*'
+- Pattern: '*draft*' OR '*v2*' OR '*revised*'
+
+Step 2: For suspected duplicates, use get_file_info to compare:
+- File sizes
+- Creation dates
+- Modification dates
+
+Step 3: For files with identical sizes, use read_multiple_files to verify content matches
+
+Step 4: Create a duplicate report:
+| File 1 | File 2 | Same Size? | Same Content? | Recommendation |
+|--------|--------|------------|---------------|----------------|
+
+IMPORTANT: Do NOT delete or move any files. Present findings and await my explicit approval for any actions.
+```
+
+---
+
+## RECOMMENDED NEXT STEPS (After Initial Reconnaissance)
+
+### Immediate Actions:
+1. **Convert Office documents to PDF** - All .docx, .doc, .pages files need PDF conversion for full searchability
+2. **Extract zip archives** - Review contents for additional evidence
+3. **Run termination-focused search** - This is your highest priority evidence
+
+### Analysis Sequence:
+1. **Termination documents first** - Understand exactly what happened and why
+2. **Policy documents second** - Establish what should have happened
+3. **Gap analysis third** - Document procedural violations
+4. **Timeline fourth** - Establish the narrative sequence
+5. **Witness materials fifth** - Identify corroboration
+
+### Deliverables to Build:
+1. **Master Evidence Index** - Every document catalogued with relevance rating
+2. **Violation Checklist** - Every policy/procedure Aurora failed to follow
+3. **Timeline of Events** - Chronological narrative with source citations
+4. **Witness List** - Potential witnesses with what they can testify to
+5. **Pretext Analysis** - Why Aurora's stated reasons don't hold up
+
+---
+
+## EXPERT LITIGATOR PROMPTS
+
+### For Building Your Theory of the Case:
+```
+Based on all documents reviewed in '/Users/trl/Documents/CB x Aurora', synthesize the evidence into a coherent theory of the case for Burandt.
+
+Structure your analysis as:
+
+1. THE NARRATIVE: What actually happened to Burandt, told as a compelling story
+
+2. THE VIOLATIONS: Specific policies and procedures Aurora violated, with citations
+
+3. THE BAD FAITH: Evidence demonstrating Aurora acted in bad faith, including:
+   - Pretextual reasoning
+   - Procedural shortcuts
+   - Inconsistent treatment
+   - Ignored complaints
+
+4. THE DAMAGES: What Burandt lost and suffered as a result
+
+5. THE ASK: What remedy should Burandt seek
+
+6. WEAKNESSES: Potential problems with our case and how to address them
+
+7. AURORA'S LIKELY DEFENSES: What they'll argue and how to counter
+```
+
+### For Preparing Legal Arguments:
+```
+Draft the key legal arguments for Burandt's case based on the evidence reviewed.
+
+For each argument:
+1. State the legal standard/requirement
+2. Apply it to the facts from the documents
+3. Cite specific documents as evidence
+4. Anticipate and address counterarguments
+
+Arguments to develop:
+- Wrongful termination
+- Breach of implied contract (if applicable)
+- Violation of company policy
+- Bad faith and unfair dealing
+- [Any discrimination/retaliation claims if evidence supports]
+```
+
+### For Deposition Preparation:
+```
+Based on the documents reviewed, prepare deposition questions for Aurora representatives.
+
+For each key witness, develop:
+1. Foundation questions (establish their role, authority, knowledge)
+2. Document-specific questions (walk them through damaging documents)
+3. Inconsistency questions (highlight contradictions)
+4. Admission-seeking questions (lock them into helpful positions)
+5. Policy knowledge questions (establish they knew the rules)
+
+Focus on questions that:
+- Cannot be easily evaded
+- Build toward key admissions
+- Create impeachment opportunities
+- Support bad faith arguments
+```
+
+---
+
+## QUICK COMMAND REFERENCE
+
+| Task | Prompt |
+|------|--------|
+| Full folder map | `list_directory '/Users/trl/Documents/CB x Aurora' depth 4` |
+| Find all PDFs | `start_search '/Users/trl/Documents/CB x Aurora' files mode '*.pdf'` |
+| Search content | `start_search '/Users/trl/Documents/CB x Aurora' content mode '[term]' contextLines 5` |
+| Read document | `read_file '[full path]'` |
+| Compare files | `read_multiple_files ['path1', 'path2']` |
+| File metadata | `get_file_info '[path]'` |
+| More results | `get_more_search_results sessionId '[id]' offset [n] length 20` |
+
+---
+
+## IMPORTANT REMINDERS
+
+- **No file changes without permission** - All moves, deletions, and modifications require your explicit approval
+- **Convert Office files** - .docx, .doc, .pages files must be converted to PDF for content searching
+- **Preserve originals** - Always keep original files; work with copies when possible
+- **Document everything** - Keep a log of all searches run and findings discovered
+- **Privilege considerations** - Flag any attorney-client communications for protection
+
+---
+
+**Ready to begin?** Copy the Master Prompt above into Claude Desktop with DesktopCommanderMCP installed to start your forensic case analysis.
