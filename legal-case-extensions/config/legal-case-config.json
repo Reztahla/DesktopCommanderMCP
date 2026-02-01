@@ -1,0 +1,118 @@
+{
+  "name": "Burandt v Aurora Legal Case Configuration",
+  "version": "1.0.0",
+  "description": "Optimized DesktopCommanderMCP configuration for legal document analysis",
+
+  "desktopCommanderConfig": {
+    "allowedDirectories": [
+      "/Users/trl/Documents/CB x Aurora"
+    ],
+    "fileReadLineLimit": 2000,
+    "fileWriteLineLimit": 100,
+    "blockedCommands": [
+      "rm -rf",
+      "mkfs",
+      "format",
+      "dd",
+      "sudo rm",
+      ":(){ :|:& };:"
+    ],
+    "defaultShell": "/bin/zsh",
+    "telemetryEnabled": false
+  },
+
+  "casePaths": {
+    "root": "/Users/trl/Documents/CB x Aurora",
+    "analysis": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS",
+    "phases": {
+      "reconnaissance": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS/Phase1_Reconnaissance",
+      "termination": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS/Phase2_Termination",
+      "policy": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS/Phase3_Policy",
+      "badFaith": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS/Phase4_BadFaith",
+      "timeline": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS/Phase5_Timeline",
+      "witnesses": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS/Phase6_Witnesses",
+      "pretext": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS/Phase7_Pretext",
+      "caseTheory": "/Users/trl/Documents/CB x Aurora/00_CASE_ANALYSIS/Phase8_CaseTheory"
+    },
+    "convertedPdfs": "/Users/trl/Documents/CB x Aurora/Converted_PDFs",
+    "duplicatesReview": "/Users/trl/Documents/CB x Aurora/99_DUPLICATES_TO_REVIEW",
+    "archive": "/Users/trl/Documents/CB x Aurora/98_ORIGINALS_ARCHIVE"
+  },
+
+  "searchPatterns": {
+    "termination": [
+      "terminat",
+      "fired",
+      "discharged",
+      "separated",
+      "dismissal",
+      "end of employment"
+    ],
+    "policy": [
+      "policy",
+      "handbook",
+      "procedure",
+      "guideline",
+      "requirement"
+    ],
+    "badFaith": [
+      "immediate",
+      "no warning",
+      "without notice",
+      "predetermined",
+      "no opportunity",
+      "denied",
+      "refused"
+    ],
+    "retaliation": [
+      "complained",
+      "reported",
+      "raised concerns",
+      "after I",
+      "retaliat"
+    ],
+    "witness": [
+      "witnessed",
+      "observed",
+      "saw",
+      "heard",
+      "can confirm"
+    ]
+  },
+
+  "exhibitConfig": {
+    "prefix": "EX",
+    "startNumber": 1,
+    "categories": [
+      "Termination Documents",
+      "Employment Records",
+      "Company Policies",
+      "Correspondence",
+      "Performance Records",
+      "Witness Statements",
+      "Evidence of Bad Faith",
+      "Supporting Documents"
+    ]
+  },
+
+  "fileTypeHandling": {
+    "searchable": [".pdf", ".txt", ".md", ".json", ".yaml"],
+    "requiresConversion": [".docx", ".doc", ".pages"],
+    "mediaEvidence": [".jpeg", ".jpg", ".png", ".mp4", ".mov"],
+    "archives": [".zip", ".tar", ".gz"]
+  },
+
+  "outputFormats": {
+    "default": "markdown",
+    "reports": "markdown",
+    "data": "json",
+    "timeline": "markdown"
+  },
+
+  "analysisSettings": {
+    "contextLines": 5,
+    "maxSearchResults": 100,
+    "duplicateThreshold": 0.95,
+    "includeFileMetadata": true
+  }
+}
