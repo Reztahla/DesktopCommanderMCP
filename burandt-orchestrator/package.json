@@ -1,0 +1,41 @@
+{
+  "name": "burandt-orchestrator",
+  "version": "1.0.0",
+  "description": "Burandt v Aurora Multi-Agent Litigation Swarm MCP Orchestrator",
+  "main": "dist/burandt_agent_mcp_config.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/burandt_agent_mcp_config.js",
+    "dev": "tsc --watch",
+    "remotion:preview": "npx remotion preview src/agent_swarm_remotion_animation.tsx",
+    "remotion:render": "npx remotion render src/agent_swarm_remotion_animation.tsx AgentSwarmVisualization --codec h264 --output burandt_swarm.mp4",
+    "remotion:gif": "npx remotion render src/agent_swarm_remotion_animation.tsx AgentSwarmVisualization --codec gif --output burandt_swarm.gif"
+  },
+  "keywords": [
+    "mcp",
+    "litigation",
+    "multi-agent",
+    "orchestrator",
+    "burandt",
+    "legal-tech"
+  ],
+  "author": "",
+  "license": "PROPRIETARY",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "react": "^18.2.0",
+    "remotion": "^4.0.0",
+    "typescript": "^5.3.0"
+  },
+  "bin": {
+    "burandt-orchestrator": "./dist/burandt_agent_mcp_config.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
