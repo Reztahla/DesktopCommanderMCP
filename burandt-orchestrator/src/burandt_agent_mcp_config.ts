@@ -602,7 +602,9 @@ Enhanced Self-Refine: Iterate until confidence >= 9/10 on all dimensions.
     };
 
     this.state.resetLogs.push(resetLog);
-    this.state.overallConfidence = resetLog.confidenceImpact.after;
+    if (resetLog.confidenceImpact) {
+      this.state.overallConfidence = resetLog.confidenceImpact.after;
+    }
 
     return {
       severity,
