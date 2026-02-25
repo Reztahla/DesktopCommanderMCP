@@ -13,9 +13,9 @@ import {
     FileInfo,
     ExcelSheet
 } from './base.js';
+import { FILE_SIZE_LIMITS } from './constants.js';
 
-// File size limit: 10MB
-const FILE_SIZE_LIMIT = 10 * 1024 * 1024;
+const FILE_SIZE_LIMIT = FILE_SIZE_LIMITS.LARGE_FILE_THRESHOLD;
 
 /**
  * Excel file metadata (internal use only)

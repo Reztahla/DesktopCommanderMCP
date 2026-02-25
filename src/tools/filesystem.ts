@@ -10,16 +10,13 @@ import type { ReadOptions, FileResult, PdfPageItem } from '../utils/files/base.j
 import { isPdfFile } from "./mime-types.js";
 import { parsePdfToMarkdown, editPdf, PdfOperations, PdfMetadata, parseMarkdownToPdf } from './pdf/index.js';
 import { isBinaryFile } from 'isbinaryfile';
+import { FILE_SIZE_LIMITS } from '../utils/files/constants.js';
 
 // CONSTANTS SECTION - Consolidate all timeouts and thresholds
 const FILE_OPERATION_TIMEOUTS = {
     PATH_VALIDATION: 10000,    // 10 seconds
     URL_FETCH: 30000,          // 30 seconds
     FILE_READ: 30000,          // 30 seconds
-} as const;
-
-const FILE_SIZE_LIMITS = {
-    LINE_COUNT_LIMIT: 10 * 1024 * 1024,      // 10MB for line counting
 } as const;
 
 // UTILITY FUNCTIONS - Eliminate duplication

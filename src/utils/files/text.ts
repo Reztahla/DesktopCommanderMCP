@@ -23,21 +23,7 @@ import {
     FileResult,
     FileInfo
 } from './base.js';
-
-// TODO: Centralize these constants with filesystem.ts to avoid silent drift
-// These duplicate concepts from filesystem.ts and should be moved to a shared
-// constants module (e.g., src/utils/files/constants.ts) during reorganization
-const FILE_SIZE_LIMITS = {
-    LARGE_FILE_THRESHOLD: 10 * 1024 * 1024,  // 10MB
-    LINE_COUNT_LIMIT: 10 * 1024 * 1024,      // 10MB for line counting
-} as const;
-
-const READ_PERFORMANCE_THRESHOLDS = {
-    SMALL_READ_THRESHOLD: 100,    // For very small reads
-    DEEP_OFFSET_THRESHOLD: 1000,  // For byte estimation
-    SAMPLE_SIZE: 10000,           // Sample size for estimation
-    CHUNK_SIZE: 8192,             // 8KB chunks for reverse reading
-} as const;
+import { FILE_SIZE_LIMITS, READ_PERFORMANCE_THRESHOLDS } from './constants.js';
 
 /**
  * Text file handler implementation
